@@ -6,9 +6,13 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/css/foundation.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
 </head>
-<body>
-    <!-- pointing to cljsbuild generated js file -->
-    <script src="js/cljdocs.js"></script>
-    <p>Nothing here {{'yet' + '!'}}</p>
+<body ng-controller="cljdocs.controllers.phone_list_ctrl">
+  <script src="js/cljdocs.js"></script>
+  <ul>
+    <li ng-repeat="phone in phones">
+      {{phone.name}}
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul>
 </body>
 </html>

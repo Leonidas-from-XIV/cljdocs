@@ -1,3 +1,3 @@
 (ns cljdocs.cljdocs)
 
-(.write js/document "Hello, ClojureScript!")
+;(.write js/document "Hello, ClojureScript!")
