@@ -6,7 +6,8 @@
   :source-paths ["src/clj"]
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-1889"]
-                 [compojure "1.1.5"]]
+                 [compojure "1.1.5"]
+                 [net.drib/mrhyde "0.5.3"]]
   :plugins [[lein-cljsbuild "0.3.3"]
             [lein-ring "0.8.7"]]
   :ring {:handler cljdocs.core/handler}
