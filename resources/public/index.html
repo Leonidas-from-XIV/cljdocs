@@ -27,17 +27,27 @@
           <li><a href="#">github</a></li>
           <li class="divider"></li>
           <li class="has-form">
-            <input type="text" placeholder="search" />
+            <input type="text" placeholder="search" ng-model="query" />
           </li>
         </ul>
       </section>
     </nav>
   </div>
   <div class="row">
+    <div class="small-2 large-3 columns">&nbsp;</div>
+    <div class="small-7 large-3 column">
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+	<option value="age">Newest</option>
+      </select>
+    </div>
+    <div class="small-3 large-6 columns">&nbsp;</div>
+  </div>
+  <div class="row">
     <div class="small-2 large-3 columns">Function Overview</div>
     <div class="small-10 large-9 columns">
       <ul>
-        <li ng-repeat="phone in phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
           {{phone.name}}
           <p>{{phone.snippet}}</p>
         </li>
