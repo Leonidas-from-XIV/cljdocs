@@ -3,9 +3,10 @@
 ;  (.module js/angular "phonemvc" (array)))
 
 (defn ^:export phone-list [$scope $http]
-  (.success (.get $http "phones/phones.json")
-            (fn [data]
-              (set! (.-phones $scope) data)))
+  (-> $http
+      (.get "phones/phones.json")
+      (.success (fn [data]
+                  (set! (.-phones $scope) data))))
   (set! (.-orderProp $scope) "age"))
 
 ;(.controller phonemvc "PhoneListCtrl" phone-list-ctrl)
