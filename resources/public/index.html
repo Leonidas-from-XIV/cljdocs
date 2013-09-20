@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="cljdocs">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/css/foundation.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
 </head>
-<body ng-controller="cljdocs.controllers.phone_list">
+<body>
   <script src="js/cljdocs.js"></script>
   <div class="contain-to-grid">
     <nav class="top-bar">
@@ -27,33 +27,12 @@
           <li><a href="#">github</a></li>
           <li class="divider"></li>
           <li class="has-form">
-            <input type="text" placeholder="search" ng-model="query" />
+            <input type="text" placeholder="search" />
           </li>
         </ul>
       </section>
     </nav>
   </div>
-  <div class="row">
-    <div class="small-2 large-3 columns">&nbsp;</div>
-    <div class="small-7 large-3 column">
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-	<option value="age">Newest</option>
-      </select>
-    </div>
-    <div class="small-3 large-6 columns">&nbsp;</div>
-  </div>
-  <div class="row">
-    <div class="small-2 large-3 columns">Function Overview</div>
-    <div class="small-10 large-9 columns">
-      <ul>
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
-	  <a href="#/phones/{{phone.id}}"><img ng-src="{{phone.imageUrl}}"/></a>
-	  <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <div ng-view></div>
 </body>
 </html>
