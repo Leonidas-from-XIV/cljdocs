@@ -29,11 +29,16 @@
       </ul>
     </section>
   </nav>
-  <ul>
-    <li ng-repeat="phone in phones">
-      {{phone.name}}
-      <p>{{phone.snippet}}</p>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="small-2 large-3 columns">Function Overview</div>
+    <div class="small-10 large-9 columns">
+      <ul>
+        <li ng-repeat="phone in phones">
+          {{phone.name}}
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
