@@ -2,7 +2,7 @@
 ;(def phonemvc
 ;  (.module js/angular "phonemvc" (array)))
 
-(defn ^:export phone-list-ctrl [$scope $http]
+(defn ^:export phone-list [$scope $http]
   (.success (.get $http "phones/phones.json")
             (fn [data]
               (set! (.-phones $scope) data)))
