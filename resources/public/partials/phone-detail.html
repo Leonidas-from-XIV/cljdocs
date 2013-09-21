@@ -1,1 +1,26 @@
-TBD: detail view for {{phoneId}}
+<img ng-src="{{phone.images[0]}}">
+
+<h1>{{phone.name}}</h1>
+
+<p>{{phone.description}}</p>
+
+<ul>
+  <li ng-repeat"img in phone.images">
+    <img ng-src="{{img}}" />
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <span>Availability and Networks</span>
+    <dl>
+      <dt>Availability</dt>
+      <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
+    </dl>
+  </li>
+  …
+  <li>
+    <span>Additional Features</span>
+    <dd>{{phone.additionalFeatures}}</dd>
+  </li>
+</ul>

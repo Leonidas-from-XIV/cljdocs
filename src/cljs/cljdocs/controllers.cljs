@@ -7,5 +7,8 @@
                   (set! (.-phones $scope) data))))
   (set! (.-orderProp $scope) "age"))
 
-(defn ^:export phone-detail [$scope $routeParams]
-  (set! (.-phoneId $scope) (.-phoneId $routeParams)))
+(defn ^:export phone-detail [$scope $routeParams $http]
+  (-> $http
+      (.get (str "phones/" (.-phoneId $routeParams) ".json"))
+      (.success (fn [data]
+                  (set! (.-phone $scope) data)))))
