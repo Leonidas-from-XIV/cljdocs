@@ -1,4 +1,4 @@
-<img ng-src="{{phone.images[0]}}">
+<img ng-src="{{mainImageUrl}}">
 
 <h1>{{phone.name}}</h1>
 
@@ -28,5 +28,11 @@
   <li>
     <span>Additional Features</span>
     <dd>{{phone.additionalFeatures}}</dd>
+  </li>
+</ul>
+
+<ul>
+  <li ng-repeat="img in phone.images">
+    <img ng-src="{{img}}" ng-click="setImage(img)"/>
   </li>
 </ul>
