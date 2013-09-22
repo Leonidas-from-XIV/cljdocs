@@ -1,7 +1,7 @@
 (ns cljdocs.app)
 
 (-> js/angular
-    (.module "cljdocs" [])
+    (.module "cljdocs" ["phonecatFilters"])
     (.config ["$routeProvider"
               (fn [$routeProvider]
                 (-> $routeProvider
