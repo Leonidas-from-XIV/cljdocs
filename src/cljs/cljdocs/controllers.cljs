@@ -12,3 +12,5 @@
   (set! (.-setImage $scope)
         (fn [imageUrl]
           (set! (.-mainImageUrl $scope) imageUrl))))
+
+(defn ^:export function-detail [$scope])
