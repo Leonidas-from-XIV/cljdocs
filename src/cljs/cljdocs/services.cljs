@@ -8,4 +8,10 @@
                            {:query {
                                     :method "GET"
                                     :params {:phoneId "phones"}
-                                    :isArray true}}))))
+                                    :isArray true}})))
+    (.factory "Function"
+              (fn [$resource]
+                ($resource "clojure_core/clojure.core/:function" {}
+                           {:query {:method "GET"
+                                    :params {:function "function"}
+                                    :isArray false}}))))

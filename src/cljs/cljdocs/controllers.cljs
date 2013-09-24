@@ -13,4 +13,5 @@
         (fn [imageUrl]
           (set! (.-mainImageUrl $scope) imageUrl))))
 
-(defn ^:export function-detail [$scope])
+(defn ^:export function-detail [$scope $routeParams Function]
+  (set! (.-docstring $scope) (.get Function {:function (.-func $routeParams)})))
