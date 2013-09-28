@@ -3,11 +3,21 @@
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [ring.util.response :as response]
-            [ring.middleware.json :as json]))
+            [ring.middleware.json :as json]
+            [informant.core :refer [inform]]))
+
+(defn lookup-fn [function]
+  (let [full-name (str "clojure.core/" function)
+        sym (symbol full-name)
+        info (inform sym)
+        ;; convert namespace to string for JSON output
+        json (assoc info :ns (str (:ns info)))]
+    json))
 
 (defroutes app-routes
   ;(GET "/" [] "<p>Hello from compojure</p>")
-  (GET "/clojure_core/clojure.core/mod" [] (response/response {:name "mod"}))
+  (GET "/clojure_core/clojure.core/:function" [function]
+       (response/response (lookup-fn function)))
   (route/resources "/")
   (route/not-found "Page not found"))
 
