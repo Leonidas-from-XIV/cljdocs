@@ -14,8 +14,14 @@
         json (assoc info :ns (str (:ns info)))]
     json))
 
+(defn list-ns [namespace]
+  (let [sym (symbol namespace)]
+    (keys (ns-publics sym))))
+
 (defroutes app-routes
   ;(GET "/" [] "<p>Hello from compojure</p>")
+  (GET "/clojure_core/:namespace" [namespace]
+       (response/response (list-ns namespace)))
   (GET "/clojure_core/clojure.core/:function" [function]
        (response/response (lookup-fn function)))
   (route/resources "/")
