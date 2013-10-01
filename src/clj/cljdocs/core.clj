@@ -16,7 +16,10 @@
 
 (defn list-ns [namespace]
   (let [sym (symbol namespace)]
-    (keys (ns-publics sym))))
+    (try
+      (keys (ns-publics sym))
+      ;; namespace unknown? return empty vector
+      (catch Exception e []))))
 
 (defroutes app-routes
   ;(GET "/" [] "<p>Hello from compojure</p>")
