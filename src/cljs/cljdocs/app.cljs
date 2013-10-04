@@ -11,6 +11,9 @@
                     (.when "/phones/:phoneId"
                            {:templateUrl "partials/phone-detail.html"
                             :controller cljdocs.controllers.phone-detail})
+                    (.when "/:project/:namespace"
+                           {:templateUrl "partials/namespace-list.html"
+                            :controller cljdocs.controllers.namespace-list})
                     (.when "/:project/:namespace/:func"
                            {:templateUrl "partials/function-detail.html"
                             :controller cljdocs.controllers.function-detail})

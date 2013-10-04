@@ -14,4 +14,10 @@
                 ($resource "clojure_core/clojure.core/:function" {}
                            {:query {:method "GET"
                                     :params {:function "function"}
-                                    :isArray false}}))))
+                                    :isArray false}})))
+    (.factory "Namespace"
+              (fn [$resource]
+                ($resource "clojure_core/:namespace" {}
+                           {:query {:method "GET"
+                                    :params {:namespace "namespace"}
+                                    :isArray true}}))))

@@ -15,3 +15,6 @@
 
 (defn ^:export function-detail [$scope $routeParams Function]
   (set! (.-func $scope) (.get Function {:function (.-func $routeParams)})))
+
+(defn ^:export namespace-list [$scope]
+  :not-implemented)
