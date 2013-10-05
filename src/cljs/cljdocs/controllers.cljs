@@ -16,5 +16,6 @@
 (defn ^:export function-detail [$scope $routeParams Function]
   (set! (.-func $scope) (.get Function {:function (.-func $routeParams)})))
 
-(defn ^:export namespace-list [$scope]
-  :not-implemented)
+(defn ^:export namespace-list [$scope $routeParams Namespace]
+  (.log js/console (.query Namespace {:namespace (.-namespace $routeParams)}))
+  (set! (.-functions $scope) (.query Namespace {:namespace (.-namespace $routeParams)})))
