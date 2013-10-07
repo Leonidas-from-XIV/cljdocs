@@ -17,7 +17,8 @@
 (defn list-ns [namespace]
   (let [sym (symbol namespace)]
     (try
-      (keys (ns-publics sym))
+      ;; Angular $resource hates arrays of strings
+      (map (fn [n] {:name n :ns namespace}) (keys (ns-publics sym)))
       ;; namespace unknown? return empty vector
       (catch Exception e []))))
 
