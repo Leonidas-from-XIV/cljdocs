@@ -17,4 +17,4 @@
                     (.when "/:project/:namespace/:func"
                            {:templateUrl "partials/function-detail.html"
                             :controller cljdocs.controllers.function-detail})
-                    (.otherwise {:redirectTo "/phones"})))]))
+                    (.otherwise {:redirectTo "/clojure_core/clojure.core"})))]))
